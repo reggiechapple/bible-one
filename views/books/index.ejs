@@ -1,0 +1,25 @@
+<%- contentFor("body") %>
+
+  <div class="container">
+
+    <div class="row my-3">
+      <div class="col-sm-12">
+        <h1>
+          Books
+        </h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <ul class="list-unstyled">
+          <% books.forEach(element=> { %>
+            <li>
+              <a href="/books/<%= element._id %>"><%= element.title %></a>
+            </li>
+            <% }) %>
+        </ul>
+      </div>
+    </div>
+
+  </div>

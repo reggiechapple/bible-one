@@ -1,0 +1,36 @@
+<%- contentFor("body") %>
+
+<div class="container">
+
+  <div class="row my-3">
+    <div class="col-sm-12">
+      <h1>
+        <%= book.title %>
+      </h1>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <form class="row gx-3 gy-2 align-items-center" action="/books/<%= book._id %>/new-chapter" method="POST">
+      <div class="col-sm-9">
+        <label class="visually-hidden" for="chapterNo">Chapter Number</label>
+        <input type="number" class="form-control" id="chapterNo" name="chapterNo" placeholder="Chapter Number">
+      </div>
+      <div class="col-sm-3">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="list-unstyled">
+        <% book.chapters.forEach(element=> { %>
+          <li>
+            <a href="/books/<%= book._id %>/chapter/<%= element.chapterNo %>">Chapter <%= element.chapterNo %></a>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</div>
