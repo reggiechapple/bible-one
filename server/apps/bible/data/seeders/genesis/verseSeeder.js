@@ -32,8 +32,9 @@ seeder.verseImporter = (bookName, chapterNo) => {
               console.log(err);
             }
             else {
-              //chapter.verses.push()
-              console.log(verses)
+              chapter.verses = [...verses];
+              chapter.save();
+              console.log(verses);
             }
           })
         }

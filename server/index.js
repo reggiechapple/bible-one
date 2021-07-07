@@ -27,7 +27,7 @@ mongoose.connect(url, {
 bookSeeder();
 chapterSeeder.chapterImporter("Genesis", 50);
 chapterSeeder.chaptersToBook("Genesis");
-verseSeeder.verseImporter("Genesis", 1);
+// verseSeeder.verseImporter("Genesis", 1);
 
 // Set view engine to ejs so that template files will be ejs files
 app.set("view engine", "ejs");
