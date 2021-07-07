@@ -1,4 +1,4 @@
-const divisions = require("../domain/dao/divisions");
+const divisions = require("../../domain/dao/divisions");
 
 const books = [
   {

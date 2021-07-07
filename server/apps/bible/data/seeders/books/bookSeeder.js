@@ -1,5 +1,5 @@
-const bookData = require("./books");
-const Book = require("../domain/schemas/Book");
+const bookData = require("./bookData");
+const Book = require("../../domain/schemas/Book");
 
 const bookSeeder = async () => {
   Book.find().countDocuments(async (err, books) => {

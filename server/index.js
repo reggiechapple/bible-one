@@ -8,9 +8,10 @@ const MongoDbStore = require('connect-mongo');
 const mongoose = require('mongoose');
 const socketIo = require("socket.io");
 const { body, validationResult } = require('express-validator');
-const bookSeeder = require("./apps/bible/data/seeders/bookSeeder");
+const bookSeeder = require("./apps/bible/data/seeders/books/bookSeeder");
 const bookRoutes = require("./apps/bible/http/routes/browser/books");
-
+const chapterSeeder = require("./apps/bible/data/seeders/genesis/chapterSeeder");
+const verseSeeder = require("./apps/bible/data/seeders/genesis/verseSeeder");
 const app = express();
 const server = createServer(app);
 
@@ -24,6 +25,9 @@ mongoose.connect(url, {
 });
 
 bookSeeder();
+chapterSeeder.chapterImporter("Genesis", 50);
+chapterSeeder.chaptersToBook("Genesis");
+verseSeeder.verseImporter("Genesis", 1);
 
 // Set view engine to ejs so that template files will be ejs files
 app.set("view engine", "ejs");
